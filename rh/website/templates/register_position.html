@@ -10,7 +10,7 @@
 
 			<!-- Header -->
 			<header id="header">
-				<a href="index.html" class="logo"><strong>Portal</strong> RH</a>
+				<a href="" class="logo"><strong>Portal</strong> RH</a>
 				<ul class="icons">
 					<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
 				</ul>
@@ -33,18 +33,18 @@
 				<div class="gtr-uniform">
 					<h3>Formulário</h3>
 
-					<form method="post" action="{% url 'salvar_vaga' %}">
+					<form method="post" action="{% url 'save_position' %}">
 						{% csrf_token %}
 						<div class="row gtr-uniform">
 							<div class="col-6 col-12-small">
-								<input type="text" name="demo-titulo" id="demo-titulo" value="" placeholder="Título" />
+								<input type="text" name="demo-title" id="demo-title" value="" placeholder="Título" />
 							</div>
 							<div class="col-6 col-12-small">
-								<input type="text" name="demo-empresa" id="demo-empresa" value=""
+								<input type="text" name="demo-name_company" id="demo-name_company" value=""
 									placeholder="Empresa" />
 							</div>
 							<div class="col-12">
-								<textarea name="demo-descricao" id="demo-descricao"
+								<textarea name="demo-description" id="demo-description"
 									placeholder="Faça uma descrição sobre a vaga." rows="6"></textarea>
 							</div>
 							<div class="col-6 col-12-small">
@@ -52,11 +52,10 @@
 									placeholder="Local" />
 							</div>
 							<div class="col-6 col-12-small">
-								<input type="text" name="demo-salario" id="demo-salario" value=""
-									placeholder="Salário" />
+								<input type="text" name="demo-salary" id="demo-salary" value="" placeholder="Salário" />
 							</div>
 							<div class="col-6 col-12-xsmall">
-								<input type="email" name="demo-email" id="demo-email" value=""
+								<input type="email" name="demo-email_contact" id="demo-email_contact" value=""
 									placeholder="Email para contato" />
 							</div>
 

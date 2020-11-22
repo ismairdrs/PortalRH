@@ -1,15 +1,15 @@
 from django.urls import path, include
-from .views import HomePageView, save_curriculo, listar_vagas, \
-                cadastrar_curriculo, cadastrar_vaga, vaga_detalhe,pesquisar_vaga, salvar_vaga
+from .views import HomePageView, save_resumo, home_positions, \
+                resumo_register, register_position, position_detail,find_position, save_position
 
 
 urlpatterns = [
-    path('', listar_vagas, name='home_vagas'),
-    path('cadastrar_curriculo/', cadastrar_curriculo, name='cadastrar_curriculo'),
-    path('cadastrar_vaga/', cadastrar_vaga, name='cadastrar_vaga'),
-    path('vaga/<int:id>/', vaga_detalhe, name='vaga_detalhe'),
-    path('save_curriculo/', save_curriculo, name='save_curriculo'),
-    path('pesquisar_vaga', pesquisar_vaga, name='pesquisar_vaga'),
-    path('salvar_vaga/', salvar_vaga, name='salvar_vaga'),
+    path('', home_positions, name='home_positions'),
+    path('resumo_register/', resumo_register, name='resumo_register'),
+    path('register_position/', register_position, name='register_position'),
+    path('position/<int:id>/', position_detail, name='position_detail'),
+    path('save_resumo/', save_resumo, name='save_resumo'),
+    path('find_position', find_position, name='find_position'),
+    path('save_position/', save_position, name='save_position'),
 
 ]

@@ -10,7 +10,7 @@
 
 			<!-- Header -->
 			<header id="header">
-				<a href="index.html" class="logo"><strong>Portal</strong> RH</a>
+				<a href="" class="logo"><strong>Portal</strong> RH</a>
 				<ul class="icons">
 					<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
 				</ul>
@@ -30,15 +30,15 @@
 			<!-- Section -->
 			<section>
 				<div class="posts">
-					{% for vaga in vagas %}
+					{% for position in list_positions %}
 					<article>
 						<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-						<h3>{{vaga.titulo}}</h3>
-						<p>{{vaga.descricao}}</p>
-						<p>{{vaga.localizacao}} - Salário: {{vaga.salario}}</p>
+						<h3>{{ position.title }}</h3>
+						<p>{{ position.description }}</p>
+						<p>{{ position.location}} - Salário: {{position.salary}}</p>
 
 						<ul class="actions">
-							<li><a href="{% url 'vaga_detalhe' vaga.id %}" class="button">Ver Mais</a></li>
+							<li><a href="{% url 'position_detail' position.id %}" class="button">Ver Mais</a></li>
 						</ul>
 					</article>
 					{% endfor %}

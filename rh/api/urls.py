@@ -1,14 +1,14 @@
 from django.urls import path, include
 from django.contrib.auth.models import User
-from website.models import Vagas
+from website.models import Position
 from rest_framework import routers, serializers, viewsets
-from .views import  VagasViewSet, UserViewSet
+from .views import  PositionsViewSet, UserViewSet
 
 
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
-router.register(r'vagas', VagasViewSet)
+router.register(r'positions', PositionsViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),

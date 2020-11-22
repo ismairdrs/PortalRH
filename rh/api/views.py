@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
-from website.models import Vagas, Curriculo
+from website.models import Position, Resumo
 from rest_framework import  viewsets
-from .serializers import  VagasSerializer, UserSerializer
+from .serializers import  PositionsSerializer, UserSerializer
 # Create your views here.
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -9,9 +9,9 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 
-class VagasViewSet(viewsets.ModelViewSet):
-    queryset = Vagas.objects.all()
-    serializer_class = VagasSerializer
+class PositionsViewSet(viewsets.ModelViewSet):
+    queryset = Position.objects.all()
+    serializer_class = PositionsSerializer
 
 
 

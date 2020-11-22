@@ -23,7 +23,7 @@
 
         <!-- Search -->
         <section id="search" class="alt">
-          <form method="post" action="{% url 'pesquisar_vaga' %}">
+          <form method="post" action="{% url 'find_position' %}">
             {% csrf_token %}
             <input type="text" name="query" id="query" placeholder="Pesquisar vagas" />
           </form>
@@ -40,9 +40,9 @@
 
             {% if user.is_authenticated %}
             
-            <li><a href="{% url 'cadastrar_vaga' %}">Cadastrar Vagas</a></li>
+            <li><a href="{% url 'register_position' %}">Cadastrar Vagas</a></li>
               
-            <li><a href="{% url 'cadastrar_curriculo' %}">Currículo</a></li>
+            <li><a href="{% url 'resumo_register' %}">Currículo</a></li>
             
             <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
             <li><a href="{% url 'account_logout' %}">Sair</a></li>

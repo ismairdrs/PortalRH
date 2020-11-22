@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Vagas,  Curriculo
+from .models import Position,  Resumo
 from django.views.generic import TemplateView
 from django.contrib.auth.models import User
 import requests
@@ -11,63 +11,62 @@ class HomePageView(TemplateView):
     template_name = 'index.html'
 
     
-def listar_vagas(request, pesquisa=None):
-    lista_vagas = Vagas.objects.all()
+def home_positions(request):
+    list_positions = Position.objects.all()
     data = {
-        'vagas': lista_vagas
+        'list_positions': list_positions
     }
     return render(request, 'index.html', data)
 
 
-def pesquisar_vaga(request):
-    campo_pesquisado = request.POST['query']
-    pesquisa = Vagas.objects.filter(titulo__icontains=campo_pesquisado, descricao__icontains=campo_pesquisado)
+def find_position(request):
+    field_find = request.POST['query']
+    search = Position.objects.filter(title__icontains=field_find, description__icontains=field_find)
     data = {
-        'vagas': pesquisa
+        'position': search
     }
     return render(request, 'index.html', data)
 
 
-def salvar_vaga(request):
-    Vagas.objects.create(
-        titulo=request.POST['demo-titulo'],
-        descricao=request.POST['demo-descricao'],
-        localizacao=request.POST['demo-location'],
-        salario=request.POST['demo-salario'],
-        nome_empresa=request.POST['demo-salario'],
-        email_contato=request.POST['demo-email']
+def save_position(request):
+    Position.objects.create(
+        title=request.POST['demo-title'],
+        description=request.POST['demo-description'],
+        location=request.POST['demo-location'],
+        salary=request.POST['demo-salary'],
+        name_company=request.POST['demo-name_company'],
+        email_contact=request.POST['demo-email_contact']
     )
     return render(request, 'index.html')
 
 
-def cadastrar_vaga(request):
-    return render(request, 'cadastrar_vagas.html')
+def register_position(request):
+    return render(request, 'register_position.html')
 
 
-def vaga_detalhe(request, id):
-    vaga = Vagas.objects.get(id=id)
-    find = vaga.titulo.split(sep=' ')[0]
-    filme = requests.get(f'http://www.omdbapi.com/?t={find}&apikey=66277ea5').json()    
-    return render(request, 'vaga_detalhe.html', {'vaga': vaga, 'filme': filme})
+def position_detail(request, id):
+    position = Position.objects.get(id=id)
+    find = position.title.split(sep=' ')[0]
+    movie = requests.get(f'http://www.omdbapi.com/?t={find}&apikey=66277ea5').json()    
+    return render(request, 'position_detail.html', {'position': position, 'movie': movie})
 
 
-def cadastrar_curriculo(request):
-    return render(request, 'cadastrar_curriculo.html')
+def resumo_register(request):
+    return render(request, 'resumo_register.html')
 
 
-def save_curriculo(request):
-    Curriculo.objects.create(
-        nome=request.POST['demo-name'],
-        sobrenome=request.POST['demo-surname'],
+def save_resumo(request):
+    Resumo.objects.create(
+        name=request.POST['demo-name'],
+        surname=request.POST['demo-surname'],
         email=request.POST['demo-email'],
-        telefone=request.POST['demo-phone'],
+        phone=request.POST['demo-phone'],
         github=request.POST['demo-github'],
         linkedin=request.POST['demo-linkedin'],
-        #descricao=request.POST['demo-descricao'],
-        experiencia =request.POST['demo-experiencia'],
-        formacoes =request.POST['demo-formacoes'],
-        habilidades = request.POST['demo-habilidades'],
-        pessoa= request.user
+        experience =request.POST['demo-experience'],
+        formations =request.POST['demo-formations'],
+        skills = request.POST['demo-skills'],
+        user= request.user
     )
     return render(request, 'index.html')
 

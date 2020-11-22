@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import  Curriculo, Vagas
+from .models import  Resumo, Position
 
-class VagasAdmin(admin.ModelAdmin):
-    list_display = ['titulo', 'salario']
+class PositionAdmin(admin.ModelAdmin):
+    list_display = ['title', 'salary']
 
-admin.site.register(Curriculo)
-admin.site.register(Vagas, VagasAdmin)
+admin.site.register(Resumo)
+admin.site.register(Position, PositionAdmin)

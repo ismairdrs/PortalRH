@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from website.models import Vagas, Curriculo
+from website.models import Position, Resumo
 from rest_framework import routers, serializers, viewsets
 
 
@@ -9,9 +9,9 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url', 'username', 'email', 'is_staff']
 
 
-class VagasSerializer(serializers.ModelSerializer):
+class PositionsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Vagas
-        fields = ['titulo', 'descricao', 'localizacao', 'salario', 'nome_empresa', 'email_contato']
+        model = Position
+        fields = ['title', 'description', 'location', 'salary', 'name_company', 'email_contact']
 
 
