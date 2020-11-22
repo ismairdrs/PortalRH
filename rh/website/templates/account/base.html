@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{% block head_title %}{% endblock %}</title>
+  {% block extra_head %}
+  {% endblock %}
+  <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+</head>
+
+<body class="is-preload">
+  <div id="wrapper">
+    <main class="container">
+
+      {% block content %}
+      {% endblock %}
+
+    </main>
+    <div id="sidebar">
+      <div class="inner">
+
+        <!-- Search -->
+        <section id="search" class="alt">
+          <form method="post" action="{% url 'pesquisar_vaga' %}">
+            {% csrf_token %}
+            <input type="text" name="query" id="query" placeholder="Pesquisar vagas" />
+          </form>
+        </section>
+
+        <!-- Menu -->
+        <nav id="menu">
+          <header class="major">
+            <h2>Menu</h2>
+          </header>
+          <ul>
+            <li><a href="/">Início</a></li>
+
+
+            {% if user.is_authenticated %}
+            
+            <li><a href="{% url 'cadastrar_vaga' %}">Cadastrar Vagas</a></li>
+              
+            <li><a href="{% url 'cadastrar_curriculo' %}">Currículo</a></li>
+            
+            <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+            <li><a href="{% url 'account_logout' %}">Sair</a></li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_login' %}">Entrar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_signup' %}">Cadastro</a>
+            </li>
+            {% endif %}
+
+            
+
+          </ul>
+        </nav>
+
+        <!-- Section -->
+        <section>
+          <header class="major">
+            <h2>RH Americas Health</h2>
+          </header>
+          <p>Plataforma de cadastro de vagas e acesso a currículos.</p>
+          <ul class="contact">
+            <li class="icon solid fa-envelope"><a href="#">rh@americashealth.com</a></li>
+            <li class="icon solid fa-phone">(000) 000-0000</li>
+            <li class="icon solid fa-home">1234 Somewhere Road #8254<br />
+              Nashville, TN 00000-0000</li>
+          </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+          <p class="copyright">&copy; Ismair Junior</a>.</p>
+        </footer>
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

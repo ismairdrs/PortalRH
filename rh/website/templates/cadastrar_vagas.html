@@ -1,0 +1,89 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% block content %}
+
+<div id="wrapper">
+
+	<!-- Main -->
+	<div id="main">
+		<div class="inner">
+
+			<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="logo"><strong>Portal</strong> RH</a>
+				<ul class="icons">
+					<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+				</ul>
+			</header>
+
+			<!-- Banner -->
+			<section id="banner">
+				<div class="content">
+					<header>
+						<h1>Cadastrar Vagas<br />
+
+					</header>
+
+				</div>
+
+			</section>
+			<!-- Section -->
+			<section>
+
+				<div class="gtr-uniform">
+					<h3>Formulário</h3>
+
+					<form method="post" action="{% url 'salvar_vaga' %}">
+						{% csrf_token %}
+						<div class="row gtr-uniform">
+							<div class="col-6 col-12-small">
+								<input type="text" name="demo-titulo" id="demo-titulo" value="" placeholder="Título" />
+							</div>
+							<div class="col-6 col-12-small">
+								<input type="text" name="demo-empresa" id="demo-empresa" value=""
+									placeholder="Empresa" />
+							</div>
+							<div class="col-12">
+								<textarea name="demo-descricao" id="demo-descricao"
+									placeholder="Faça uma descrição sobre a vaga." rows="6"></textarea>
+							</div>
+							<div class="col-6 col-12-small">
+								<input type="text" name="demo-location" id="demo-location" value=""
+									placeholder="Local" />
+							</div>
+							<div class="col-6 col-12-small">
+								<input type="text" name="demo-salario" id="demo-salario" value=""
+									placeholder="Salário" />
+							</div>
+							<div class="col-6 col-12-xsmall">
+								<input type="email" name="demo-email" id="demo-email" value=""
+									placeholder="Email para contato" />
+							</div>
+
+
+							<div class="col-6 col-12-small">
+								<input type="checkbox" id="demo-human" name="demo-human" checked>
+								<label for="demo-human">Eu sou um humano</label>
+							</div>
+
+							<div class="col-12">
+								<ul class="actions">
+									<li><input type="submit" value="Cadastrar" class="primary" /></li>
+									<li><input type="reset" value="reset" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</section>
+
+		</div>
+	</div>
+
+
+
+</div>
+
+
+{% endblock %}

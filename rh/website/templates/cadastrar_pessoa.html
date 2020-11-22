@@ -1,0 +1,84 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div id="wrapper">
+
+	<!-- Main -->
+		<div id="main">
+			<div class="inner">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Portal</strong> RH</a>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+						</ul>
+					</header>
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="content">
+							<header>
+								<h1>Cadastrar Pessoa<br />
+								
+							</header>
+							
+						</div>
+						
+					</section>
+				<!-- Section -->
+					<section>
+
+						<div class="gtr-uniform">
+							<h3>Formulário</h3>
+
+										<form method="post" action="{% url 'save_pessoa' %}">
+											{% csrf_token %}
+											<div class="row gtr-uniform">
+												<div class="col-6 col-12-small">
+													<input type="text" name="demo-name" id="demo-name" value="" placeholder="Nome" />
+												</div>
+												<div class="col-6 col-12-small">
+													<input type="text" name="demo-surname" id="demo-surname" value="" placeholder="Sobrenome" />
+												</div>
+												<div class="col-6 col-12-small">
+													<input type="text" name="demo-date" id="demo-date" value="" placeholder="Data de Nascimento" />
+												</div>
+												<div class="col-6 col-12-xsmall">
+													<input type="text" name="demo-cidade" id="demo-cidade" value="" placeholder="Cidade" />
+												</div>
+												
+												
+												<div class="col-6 col-12-xsmall">
+													<select name="demo-sexo" id="demo-sexo">
+														<option value="M">Masculino</option>
+														<option value="F">Feminino</option>
+														<option value="N">Nenhuma das opções</option>
+														
+													  </select>
+													
+												</div>
+												
+												
+										
+												<div class="col-12">
+													<ul class="actions">
+														<li><input type="submit" value="Cadastrar" class="primary" /></li>
+														
+													</ul>
+												</div>
+											</div>
+										</form>
+							
+						</div>
+					</section>
+
+			</div>
+		</div>
+</div>
+
+	
+				
+{% endblock %}
